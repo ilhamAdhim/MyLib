@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>MyLib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="./assets/favicon.ico">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styleBookshelf.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/modals.css">
+    <link rel="stylesheet" href="styles/bookItem.css">
+</head>
+
+<body>
+    <main>
+        <section id="jumbotron_section">
+            <div class="text_jumbotron_section">
+                <h1> MyLib 📖 </h1> <br>
+                <h5> Manage your own collection of books </h5>
+                <h5> Track your reading progress </h5>
+                <br>
+                <a href="#content">
+                    <button class="button_jumbotron" role="button">
+                        <span class="text"> Go To Library </span>
+                    </button>
+                </a>
+            </div>
+            <div class="image_bookshelf">
+                <img src="./assets/undraw_reading_time_gvg0.svg" alt="">
+            </div>
+        </section>
+        <section id="content">
+            <div id="card_bookshelves">
+                <div class="card_bookshelves_header">
+                    <div class="book_category">
+                        Book List
+                    </div>
+                    <button class="button_card_header" id="button_add_book">
+                        <span>Add Book</span>
+                    </button>
+                    <!-- Modal for displaying form add new book -->
+                    <div id="modal_form" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span>Add Book</span>
+                                <span class="close">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the Modal Body</p>
+                                <p>Some other text...</p>
+                            </div>
+                            <div class="modal-footer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="book_list">
+
+                </div>
+            </div>
+            <div id="card_bookshelves">
+                <div class="card_bookshelves_header">
+                    <div class="book_category">
+                        Finished
+                    </div>
+                    <button class="button_card_header_clear" id="button_clear_finished">
+                        <span>Clear</span>
+                    </button>
+                    <!-- Modal validation for clearing data in Finished -->
+                    <div id="modal_validation" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span>Delete All</span>
+                                <span class="close">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <img src="./assets/undraw_Notify_re_65on.svg" alt="">
+                                <p>Are you sure want to <b> delete all </b> finished books ? </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="yes_clear" onclick="deleteAllFinishedBooks()">
+                                    <span>Yes</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="finished_book_list">
+
+                </div>
+            </div>
+            <!-- <div id="card_bookshelves"> -->
+            <!-- <span class="book_category"> -->
+            <!-- Favorite Book -->
+            <!-- </span> -->
+            <!-- </div> -->
+        </section>
+    </main>
+    <!-- Optional JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script src="/js/modals.js"></script>
+    <script src="/js/books.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
