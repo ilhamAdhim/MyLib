@@ -98,7 +98,6 @@ const removeBookByID = bookID => {
 }
 // This function is used for changing from bookList -> Finished, and vice versa
 const updateBookByID = (bookID, category) => {
-    console.log(category)
     // Compare the id, if IDs are similar, then replace the object into the updated ones
     dataBooks.map(book =>
         book.id === bookID ?
@@ -106,7 +105,6 @@ const updateBookByID = (bookID, category) => {
             :
             book
     );
-    console.log(dataBooks)
     updateDataToStorage();
     window.location.reload(false);
 }

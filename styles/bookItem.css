@@ -53,6 +53,7 @@ hr {
 .btn_delete,
 .btn_done {
   border-radius: 0.3em;
+  height: 2em;
 }
 
 .btn_delete {

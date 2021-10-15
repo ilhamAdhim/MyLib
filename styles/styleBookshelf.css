@@ -17,6 +17,13 @@ button {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+h1 {
+  font-size: 40px;
+}
+h5 {
+  font-size: 20px;
+}
+
 main {
   width: 100%;
 }

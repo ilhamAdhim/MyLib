@@ -1,7 +1,16 @@
 /* CSS */
+
+button {
+  cursor: pointer;
+}
+
 .button_jumbotron,
 .button_card_header {
   background-color: #6c63ff;
+}
+
+.button_jumbotron {
+  margin-top: 2em;
 }
 
 .button_card_header_clear,
@@ -30,7 +39,6 @@
   font-weight: 700;
   letter-spacing: 0;
   line-height: 1em;
-  margin: 0;
   opacity: 1;
   outline: 0;
   padding: 1.5em 2.2em;

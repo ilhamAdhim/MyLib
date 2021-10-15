@@ -62,7 +62,7 @@ const renderDataToDOM = (element, data, category) => {
             </button>
             <button class="btn_done" onclick='updateBookByID(${book.id}, "${category}")'>
             ${category === "bookList" ? "✔" :
-                '<i class="fa fa-refresh" aria-hidden="true"></i>'
+                '<i class="fa fa-undo" aria-hidden="true"></i>'
             }
             </button >
         </div >
