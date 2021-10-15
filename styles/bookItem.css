@@ -11,10 +11,65 @@
 .cardBook {
   background-color: aliceblue;
   width: 30%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+.no_data_image {
+  margin-top: 15%;
+  width: 300px;
+}
+
+.caption_empty {
+  margin-top: 2em;
+  font-weight: 600;
+  color: grey;
 }
 
 hr {
   background-color: #231e8f;
   margin: 0em;
   padding: 0em;
+}
+
+.book_title {
+  padding: 1em;
+  font-size: 0.8em;
+}
+
+.book_year {
+  padding: 1em;
+  font-size: 0.8em;
+
+  text-align: end;
+}
+
+.book_actions {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.btn_delete,
+.btn_done {
+  border-radius: 0.3em;
+}
+
+.btn_delete {
+  background-color: #231e8f;
+  color: red;
+}
+
+.btn_done {
+  background-color: #6c63ff;
+  color: rgb(0, 255, 0);
+}
+
+/* Small screen */
+@media only screen and (max-width: 640px) {
+  .cardBook {
+    background-color: aliceblue;
+    width: 45%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  }
 }

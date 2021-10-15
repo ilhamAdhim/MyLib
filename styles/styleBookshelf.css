@@ -42,17 +42,14 @@ main {
 }
 
 #content {
-  margin-top: 10em;
   display: flex;
-  height: 100vh;
+  gap: 1em;
   text-align: center;
+  height: 100%;
   justify-content: space-around;
 }
 
 #card_bookshelves {
-  overflow: auto;
-  width: 48%;
-  height: 730px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 }
 
@@ -103,9 +100,9 @@ main {
   }
 
   #card_bookshelves {
-    margin-top: 2em;
+    margin-top: 4em;
+    flex-basis: fit-content;
     width: 100%;
-    height: 500px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
   }
 }
@@ -140,9 +137,7 @@ main {
   }
 
   #card_bookshelves {
-    margin-top: 5em;
-    width: 100%;
-    height: 500px;
+    flex-basis: fit-content;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
   }
 }
