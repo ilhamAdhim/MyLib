@@ -78,7 +78,7 @@ const initializeBooks = () => {
         loadDataFromStorage(STORAGE_KEY)
 }
 
-const addNewBook = ({ title, author, year, isComplete }) => {
+const addNewBook = ({ title, author, year, isComplete = false }) => {
     return {
         id: +new Date(),
         title,
@@ -93,8 +93,12 @@ const searchBookByTitle = (title) => {
 }
 
 const removeBookByID = bookID => {
+    // Trigger display alert From modals.js
+    // removeBookAlert()
     dataBooks = dataBooks.filter(item => item.id !== bookID);
     updateDataToStorage();
+    window.location.reload(false);
+
 }
 // This function is used for changing from bookList -> Finished, and vice versa
 const updateBookByID = (bookID, category) => {

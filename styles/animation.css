@@ -1,0 +1,21 @@
+.lamp {
+  display: block;
+  animation: fadeInFromNone 2s infinite;
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  50% {
+    display: block;
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}

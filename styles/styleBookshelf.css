@@ -56,6 +56,25 @@ main {
   justify-content: space-around;
 }
 
+.lamp {
+  position: relative;
+  width: 9.7em;
+  margin-left: 9em;
+  z-index: -2;
+  perspective: 100px;
+}
+
+.lamp-lights {
+  margin-top: 10em;
+  padding: 4em 0;
+  width: 100%;
+  margin-left: 1.4em;
+  position: absolute;
+  background: linear-gradient(rgb(255, 255, 7) 20%, #0000);
+  transform-style: preserve-3d;
+  transform: rotateX(45deg);
+}
+
 #card_bookshelves {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 }
@@ -76,6 +95,10 @@ main {
   -webkit-transform: translateY(25%);
   -ms-transform: translateY(25%);
   transform: translateY(25%);
+}
+
+.image_bookshelf img {
+  z-index: 2;
 }
 
 /* For small screen */
@@ -112,6 +135,25 @@ main {
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
   }
+
+  .lamp {
+    position: relative;
+    width: 100px;
+    margin-left: 35px;
+    z-index: -2;
+    perspective: 100px;
+  }
+
+  .lamp-lights {
+    margin-top: 2em;
+    padding: 3em 0;
+    width: 60%;
+    margin-left: 2em;
+    position: absolute;
+    background: linear-gradient(yellow 20%, #0000);
+    transform-style: preserve-3d;
+    transform: rotateX(45deg);
+  }
 }
 
 /* For medium screen */
@@ -146,5 +188,23 @@ main {
   #card_bookshelves {
     flex-basis: fit-content;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  }
+
+  .lamp {
+    position: relative;
+    width: 120px;
+    margin-left: 100px;
+    z-index: -2;
+    perspective: 100px;
+  }
+
+  .lamp-lights {
+    margin-top: 8em;
+    padding: 3em;
+    margin-left: 1em;
+    position: absolute;
+    background: linear-gradient(yellow 20%, #0000);
+    transform-style: preserve-3d;
+    transform: rotateX(45deg);
   }
 }

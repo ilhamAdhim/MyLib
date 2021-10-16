@@ -57,12 +57,12 @@ const renderDataToDOM = (element, data, category) => {
             ${book.year}
         </div>
         <div class="book_actions">
-            <button class="btn_delete">
-            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <button class="btn_delete" onclick='removeBookByID(${book.id})'>
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
             </button>
             <button class="btn_done" onclick='updateBookByID(${book.id}, "${category}")'>
-            ${category === "bookList" ? "✔" :
-                '<i class="fa fa-undo" aria-hidden="true"></i>'
+            ${category === "bookList" ?
+                "✔" : '<i class="fa fa-undo" aria-hidden="true"></i>'
             }
             </button >
         </div >
@@ -74,3 +74,4 @@ const renderDataToDOM = (element, data, category) => {
 
 loadBookListToDOM()
 loadBookFinishedToDOM()
+

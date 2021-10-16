@@ -8,18 +8,24 @@
 
     <link rel="shortcut icon" href="./assets/favicon.ico">
 
+    <!-- for icon -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- for animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/styleBookshelf.css">
     <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/modals.css">
     <link rel="stylesheet" href="styles/bookItem.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/animation.css">
 </head>
 
 <body>
     <main>
         <section id="jumbotron_section">
-            <div class="text_jumbotron_section">
+            <div class="text_jumbotron_section" data-aos="fade-right">
                 <h1> MyLib 📖 </h1> <br>
                 <h5> Manage your own collection of books </h5>
                 <h5> Track your reading progress </h5>
@@ -30,7 +36,12 @@
                     </button>
                 </a>
             </div>
-            <div class="image_bookshelf">
+            <div class="image_bookshelf" data-aos="zoom-out-left">
+                <div class="lamp">
+                    <div class="lamp-lights">
+
+                    </div>
+                </div>
                 <img src="./assets/undraw_reading_time_gvg0.svg" alt="">
             </div>
         </section>
@@ -47,15 +58,40 @@
                     <div id="modal_form" class="modal">
                         <div class="modal_content">
                             <div class="modal_header">
-                                <span>Add Book</span>
+                                <span>Add Book to <u> Book List </u></span>
                                 <span class="close">&times;</span>
                             </div>
                             <div class="modal_body">
-                                <p>Some text in the Modal Body</p>
-                                <p>Some other text...</p>
+                                <div class="form_content">
+                                    <form id="form_new_book" autocomplete="off">
+                                        <div class="form_element">
+                                            <label for="inputTitle" class="required">Book Title</label>
+                                            <input id="inputTitle" required type="text" name="">
+                                            <span class="separator"> </span>
+                                        </div>
+                                        <div class="form_element">
+                                            <label for="inputAuthor" class="required">Author Name</label>
+                                            <input id="inputAuthor" required type="text" name="">
+                                            <span class="separator"> </span>
+                                        </div>
+                                        <div class="form_element">
+                                            <label for="inputYear" class="required">Year</label>
+                                            <input id="inputYear" required type="number" name="">
+                                            <span class="separator"> </span>
+                                        </div>
+                                        <div class="form_element">
+                                            <label for="inputImageURL">Image URL</label>
+                                            <input id="inputImageURL" type="text" name="">
+                                            <span class="separator"> </span>
+                                        </div>
+                                    </form>
+                                </div>
+
                             </div>
                             <div class="modal-footer">
-
+                                <button class="submit_add_book">
+                                    <span>Submit</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -95,6 +131,19 @@
 
                 </div>
             </div>
+            <div id="modal_detail" class="modal">
+                <div class="modal_content">
+                    <div class="modal_header">
+
+                    </div>
+                    <div class="modal_body">
+
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
             <!-- <div id="card_bookshelves"> -->
             <!-- <span class="book_category"> -->
             <!-- Favorite Book -->
@@ -102,11 +151,13 @@
             <!-- </div> -->
         </section>
     </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
     <script src="/js/modals.js"></script>
     <script src="/js/books.js"></script>
     <script src="/js/dom.js"></script>
     <script src="/js/script.js"></script>
-
 
 </body>
 

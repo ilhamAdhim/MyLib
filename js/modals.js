@@ -24,9 +24,19 @@ btnClearFinished.onclick = function () {
 }
 
 // When the user clicks anywhere outside of the modalForm or modalValidation, close it
-window.onclick = function (event) {
+window.onclick = (event) => {
     if (event.target == modalForm || event.target == modalValidation) {
         modalForm.style.display = "none";
         modalValidation.style.display = "none";
+    }
+}
+
+const removeBookAlert = () => {
+    let modalElement = document.getElementById("modal_detail")
+    let deleteButton = document.getElementsByClassName("btn_delete")[0];
+    console.log(deleteButton)
+
+    deleteButton.onclick = () => {
+        modalElement.style.display = "block";
     }
 }
