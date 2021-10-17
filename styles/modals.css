@@ -89,13 +89,15 @@
 
 @media only screen and (max-width: 640px) {
   #modal_validation .modal_content,
-  #modal_delete_book .modal_content {
-    width: 60%;
+  #modal_delete_book .modal_content,
+  #modal_form .modal_content {
+    width: 90%;
   }
 }
 @media only screen and (max-width: 1024px) and (min-width: 641px) {
   #modal_validation .modal_content,
-  #modal_delete_book .modal_content {
+  #modal_delete_book .modal_content,
+  #modal_form .modal_content {
     width: 60%;
   }
 }
