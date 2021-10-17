@@ -10,6 +10,7 @@
 .card_book {
   background-color: aliceblue;
   width: 30%;
+  height: 100%;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
   margin-bottom: 1em;
 }
@@ -64,19 +65,31 @@ hr {
 .btn_delete,
 .btn_done {
   border-radius: 0.3em;
+  border: none;
   height: 2em;
 }
 
 .btn_delete {
-  background-color: #231e8f;
+  color: grey;
+  transition: all ease-in-out 0.5s;
+  border: 1px solid transparent;
+}
+
+.btn_delete:hover {
   color: red;
+  border: 1px solid red;
 }
 
 .btn_done {
-  background-color: #6c63ff;
-  color: rgb(8, 214, 8);
+  color: grey;
+  transition: all ease-in-out 0.5s;
+  border: 1px solid transparent;
 }
 
+.btn_done:hover {
+  color: white;
+  background-color: green;
+}
 /* Small screen */
 @media only screen and (max-width: 640px) {
   .card_book {

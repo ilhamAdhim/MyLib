@@ -106,11 +106,16 @@ main {
   display: flex;
   justify-content: center;
   text-align: center;
-  gap: 1em;
+  gap: 2em;
 }
 
 .search_input {
   width: 20em;
+  border: none;
+}
+
+.search_input:focus {
+  border-bottom: 1px solid #231e8f;
 }
 
 #footer {

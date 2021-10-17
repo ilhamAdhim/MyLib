@@ -125,8 +125,11 @@ button {
 }
 
 #btn_search {
-  width: 5em;
-  border-radius: 0.5em;
+  width: 3.5em;
+  height: 3.5em;
+  outline: none;
+  border: none;
+  border-radius: 50%;
   background-color: #6c63ff;
   color: white;
   transition: transform 0.2s;
