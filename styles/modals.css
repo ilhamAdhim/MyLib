@@ -2,7 +2,7 @@
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 2; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -60,14 +60,15 @@
   width: 200px;
 }
 
-/* Modal Footer */
 .modal_footer {
   border: 0;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+
   text-align: center;
   padding: 2px 16px;
 }
 
-/* Modal Content */
 .modal_content {
   position: relative;
   background-color: #fefefe;

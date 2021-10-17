@@ -64,7 +64,7 @@ main {
   perspective: 100px;
 }
 
-.lamp-lights {
+.lamp_lights {
   margin-top: 10em;
   padding: 4em 0;
   width: 100%;
@@ -99,6 +99,18 @@ main {
 
 .image_bookshelf img {
   z-index: 2;
+}
+
+#search_section {
+  margin: 0 0 4em 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.search_input {
+  width: 20em;
 }
 
 /* For small screen */
@@ -144,7 +156,7 @@ main {
     perspective: 100px;
   }
 
-  .lamp-lights {
+  .lamp_lights {
     margin-top: 2em;
     padding: 3em 0;
     width: 60%;
@@ -153,6 +165,11 @@ main {
     background: linear-gradient(yellow 20%, #0000);
     transform-style: preserve-3d;
     transform: rotateX(45deg);
+  }
+
+  #search_section {
+    margin-top: 4em;
+    margin-bottom: -4em;
   }
 }
 
@@ -198,7 +215,7 @@ main {
     perspective: 100px;
   }
 
-  .lamp-lights {
+  .lamp_lights {
     margin-top: 8em;
     padding: 3em;
     margin-left: 1em;
@@ -206,5 +223,10 @@ main {
     background: linear-gradient(yellow 20%, #0000);
     transform-style: preserve-3d;
     transform: rotateX(45deg);
+  }
+
+  #search_section {
+    margin-top: 4em;
+    margin-bottom: -2em;
   }
 }

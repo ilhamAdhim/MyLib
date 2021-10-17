@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>MyLib</title>
+    <title>MyLib - Manage bookshelves </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -30,7 +30,7 @@
                 <h5> Manage your own collection of books </h5>
                 <h5> Track your reading progress </h5>
                 <br>
-                <a href="#content">
+                <a href="#search_section">
                     <button class="button_jumbotron" role="button">
                         <span class="text"> Go To Library </span>
                     </button>
@@ -38,13 +38,21 @@
             </div>
             <div class="image_bookshelf" data-aos="zoom-out-left">
                 <div class="lamp">
-                    <div class="lamp-lights">
+                    <div class="lamp_lights">
 
                     </div>
                 </div>
                 <img src="./assets/undraw_reading_time_gvg0.svg" alt="">
             </div>
         </section>
+        <div id="search_section">
+            <input type="text" id="search_input" class="search_input" placeholder="Search books . . ."
+                onkeypress="searchBookByEnter(event)">
+            <!-- <span class="separator_input"> </span> -->
+            <button id="btn_search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
         <section id="content">
             <div id="card_bookshelves">
                 <div class="card_bookshelves_header">
@@ -68,16 +76,19 @@
                                             <label for="inputTitle" class="required">Book Title</label>
                                             <input id="inputTitle" required type="text" name="">
                                             <span class="separator"> </span>
+                                            <span class="validatorTitle"> </span>
                                         </div>
                                         <div class="form_element">
                                             <label for="inputAuthor" class="required">Author Name</label>
                                             <input id="inputAuthor" required type="text" name="">
                                             <span class="separator"> </span>
+                                            <span class="validatorAuthor"> </span>
                                         </div>
                                         <div class="form_element">
                                             <label for="inputYear" class="required">Year</label>
                                             <input id="inputYear" required type="number" name="">
                                             <span class="separator"> </span>
+                                            <span class="validatorYear"> </span>
                                         </div>
                                         <div class="form_element">
                                             <label for="inputImageURL">Image URL</label>
@@ -88,7 +99,7 @@
                                 </div>
 
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal_footer">
                                 <button class="submit_add_book">
                                     <span>Submit</span>
                                 </button>
@@ -119,8 +130,8 @@
                                 <img src="./assets/undraw_Notify_re_65on.svg" alt="">
                                 <p>Are you sure want to <b> delete all </b> finished books ? </p>
                             </div>
-                            <div class="modal-footer">
-                                <button class="yes_clear" onclick="deleteAllFinishedBooks()">
+                            <div class="modal_footer">
+                                <button class="yes_clear">
                                     <span>Yes</span>
                                 </button>
                             </div>
@@ -139,16 +150,11 @@
                     <div class="modal_body">
 
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal_footer">
 
                     </div>
                 </div>
             </div>
-            <!-- <div id="card_bookshelves"> -->
-            <!-- <span class="book_category"> -->
-            <!-- Favorite Book -->
-            <!-- </span> -->
-            <!-- </div> -->
         </section>
     </main>
 
@@ -157,8 +163,7 @@
     <script src="/js/modals.js"></script>
     <script src="/js/books.js"></script>
     <script src="/js/dom.js"></script>
-    <script src="/js/script.js"></script>
-
+    <script src="/js/scripts.js"></script>
 </body>
 
 </html>

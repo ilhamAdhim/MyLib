@@ -7,10 +7,11 @@
   align-items: center;
 }
 
-.cardBook {
+.card_book {
   background-color: aliceblue;
   width: 30%;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  margin-bottom: 1em;
 }
 
 .no_data_image {
@@ -32,14 +33,25 @@ hr {
 
 .book_title {
   padding: 1em;
-  font-size: 0.8em;
+  font-weight: 500;
+  font-size: 1em;
 }
 
-.book_year {
-  padding: 1em;
-  font-size: 0.8em;
+.book_details {
+  display: flex;
+  justify-content: space-between;
+}
 
-  text-align: end;
+.book_image {
+  height: 250px;
+  padding: 1em;
+  object-fit: contain;
+}
+
+.book_year,
+.book_author {
+  padding: 0.5em;
+  font-size: 0.8em;
 }
 
 .book_actions {
@@ -62,12 +74,12 @@ hr {
 
 .btn_done {
   background-color: #6c63ff;
-  color: rgb(0, 255, 0);
+  color: rgb(8, 214, 8);
 }
 
 /* Small screen */
 @media only screen and (max-width: 640px) {
-  .cardBook {
+  .card_book {
     background-color: aliceblue;
     width: 45%;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;

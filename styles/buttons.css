@@ -115,3 +115,15 @@ button {
   padding: 0.8em;
   width: 100px;
 }
+
+#btn_search {
+  width: 5em;
+  border-radius: 0.5em;
+  background-color: #6c63ff;
+  color: white;
+  transition: transform 0.2s;
+}
+
+#btn_search:hover {
+  transform: scale(1.1);
+}

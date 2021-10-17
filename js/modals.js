@@ -7,36 +7,25 @@ let btnClearFinished = document.getElementById("button_clear_finished");
 let spanAddBook = document.getElementsByClassName("close")[0];
 let spanClear = document.getElementsByClassName("close")[1];
 
-btnAddBook.onclick = function () {
-    modalForm.style.display = "block";
-}
+let modalElement = document.getElementById("modal_detail")
+let deleteButton = document.getElementsByClassName("btn_delete")[0];
 
-spanAddBook.onclick = function () {
-    modalForm.style.display = "none";
-}
+const closeModalForm = () => { modalForm.style.display = "none" }
+const openModalForm = () => { modalForm.style.display = "block" }
 
-spanClear.onclick = function () {
-    modalValidation.style.display = "none";
-}
+btnAddBook.onclick = () => openModalForm()
+spanAddBook.onclick = () => closeModalForm()
 
-btnClearFinished.onclick = function () {
-    modalValidation.style.display = "block";
-}
+const closeModalValidation = () => { modalValidation.style.display = "none" }
+const openModalValidation = () => { modalValidation.style.display = "block" }
+
+btnClearFinished.onclick = () => openModalValidation()
+spanClear.onclick = () => closeModalValidation()
 
 // When the user clicks anywhere outside of the modalForm or modalValidation, close it
 window.onclick = (event) => {
     if (event.target == modalForm || event.target == modalValidation) {
-        modalForm.style.display = "none";
-        modalValidation.style.display = "none";
-    }
-}
-
-const removeBookAlert = () => {
-    let modalElement = document.getElementById("modal_detail")
-    let deleteButton = document.getElementsByClassName("btn_delete")[0];
-    console.log(deleteButton)
-
-    deleteButton.onclick = () => {
-        modalElement.style.display = "block";
+        closeModalForm()
+        closeModalValidation()
     }
 }
