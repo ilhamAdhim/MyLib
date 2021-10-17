@@ -14,7 +14,7 @@
     <!-- for animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/styleBookshelf.css">
+    <link rel="stylesheet" href="styles/stylePage.css">
     <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/modals.css">
     <link rel="stylesheet" href="styles/bookItem.css">
@@ -42,13 +42,12 @@
 
                     </div>
                 </div>
-                <img src="./assets/undraw_reading_time_gvg0.svg" alt="">
+                <img src="./assets/image_jumbotron.svg" alt="">
             </div>
         </section>
         <div id="search_section">
             <input type="text" id="search_input" class="search_input" placeholder="Search books . . ."
                 onkeypress="searchBookByEnter(event)">
-            <!-- <span class="separator_input"> </span> -->
             <button id="btn_search">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </button>
@@ -127,7 +126,7 @@
                                 <span class="close">&times;</span>
                             </div>
                             <div class="modal_body">
-                                <img src="./assets/undraw_Notify_re_65on.svg" alt="">
+                                <img src="./assets/delete_finished_books.svg" alt="">
                                 <p>Are you sure want to <b> delete all </b> finished books ? </p>
                             </div>
                             <div class="modal_footer">
@@ -142,21 +141,29 @@
 
                 </div>
             </div>
-            <div id="modal_detail" class="modal">
+            <div id="modal_delete_book" class="modal">
                 <div class="modal_content">
                     <div class="modal_header">
-
+                        <span> Delete book </span>
+                        <span class="close">&times;</span>
                     </div>
                     <div class="modal_body">
-
+                        <img src="./assets/book_remove.svg" alt="">
+                        <p class="modal_body_text"> </p>
                     </div>
                     <div class="modal_footer">
-
+                        <button class="yes_remove_book">
+                            <span>Yes</span>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <footer id="footer">
+        By Muhammad Ilham Adhim - 2021
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init();</script>

@@ -1,6 +1,9 @@
 let bookListElement = document.getElementById("book_list")
 let finishedBookListElement = document.getElementById("finished_book_list")
 
+let currentBookElement;
+let currentBookID;
+
 const loadBookListToDOM = () => {
     let bookList = getBookList()
     if (bookList.length > 0)
@@ -19,10 +22,10 @@ const loadBookFinishedToDOM = () => {
 
 const renderEmptyDataToDOM = (element, category) => {
     let emptySectionElement = document.createElement('div')
-
+    emptySectionElement.classList.add('empty_data')
     // Image
     let imageElement = document.createElement('img')
-    imageElement.setAttribute('src', '../assets/undraw_Taking_notes_re_bnaf.svg')
+    imageElement.setAttribute('src', '../assets/empty_bookshelf.svg')
     imageElement.setAttribute('alt', "No data")
     imageElement.classList.add('no_data_image')
     emptySectionElement.append(imageElement)
@@ -53,7 +56,7 @@ const renderEachBookDOM = (book, element, category, delayAnimation = 0) => {
 
     // Image
     let imageElement = document.createElement('img')
-    imageElement.setAttribute('src', book.imageURL.length !== 0 ? book.imageURL : '../assets/undraw_Images_re_0kll.svg')
+    imageElement.setAttribute('src', book.imageURL.length !== 0 ? book.imageURL : '../assets/book_img_default.svg')
     imageElement.setAttribute('alt', book.title)
     imageElement.classList.add('book_image')
     newCardElement.append(imageElement)
@@ -73,7 +76,7 @@ const renderEachBookDOM = (book, element, category, delayAnimation = 0) => {
             </div>
         </div>
         <div class="book_actions">
-            <button class="btn_delete" onclick='removeBookElement(event, ${book.id})'>
+            <button class="btn_delete" onclick='triggerAlertRemoveBook(event, ${book.id})'>
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
             </button>
             <button class="btn_done" onclick='changeBookshelfElement(event, ${book.id}, "${category}")'>
@@ -132,45 +135,74 @@ const addNewBookToBookList = () => {
     }
 }
 
-const searchBook = () => {
-    let inputSearchValue = document.getElementById('search_input').value
-
-    dataBooks = searchBookByTitle(inputSearchValue)
-}
-
 const searchBookByEnter = (e) => {
-    if (e.key == "Enter")
-        searchBook()
+    if (e.key == "Enter") {
+        doSearch()
+    }
 }
 
-const resetSearch = () => {
-    window.dispatchEvent(Event('load'))
-}
-
-const removeDOMBookFinishedElement = () => {
+const removeDOMBookFinishedElement = (role = "") => {
     let bookFinished = getFinishedBookList()
     bookFinished.forEach(item => {
         let children = document.querySelector('#finished_book_list .card_book');
-        children.remove()
+        if (children !== null)
+            children.remove()
     })
-    renderEmptyDataToDOM(finishedBookListElement, "Finished Book")
+
+    if (role !== "searching")
+        renderEmptyDataToDOM(finishedBookListElement, "Finished Book")
 }
 
-const removeBookElement = (event, bookID) => {
-    let bookElement = event.target.parentElement.offsetParent
+const removeDOMBookListElement = (role = "") => {
+    let bookList = getBookList()
+    bookList.forEach(item => {
+        let children = document.querySelector('#book_list .card_book');
+        if (children !== null)
+            children.remove()
+    })
 
-    bookElement.remove()
-    removeBookByID(bookID)
+    if (role !== "searching")
+        renderEmptyDataToDOM(bookListElement, "Book List")
+}
+
+const removeEmptyDataFroMDOM = () => {
+    let emptyDOMElement = document.getElementsByClassName('empty_data')
+
+    while (emptyDOMElement.length > 0) {
+        let item = emptyDOMElement[0];
+        item.parentNode.removeChild(item);
+    }
+
+}
+
+const removeAllBookForSearchResult = (anyResult = true) => {
+    if (!anyResult)
+        removeEmptyDataFroMDOM()
+    removeDOMBookFinishedElement("searching")
+    removeDOMBookListElement("searching")
+}
+
+const triggerAlertRemoveBook = (event, bookID) => {
+    currentBookElement = event.target.parentElement.offsetParent
+    currentBookID = bookID
+
+    let currentBook = searchBookByID(bookID)[0]
+    let bodyText = document.getElementsByClassName("modal_body_text")[0]
+    bodyText.innerHTML = `<span>Are you sure want to delete book <br> "${currentBook.title}"? </span>`
+
+    openModalDeleteBook()
+}
+
+const removeBookElement = () => {
+    currentBookElement.remove()
 
     let bookList = getBookList()
     let bookFinished = getFinishedBookList()
 
-    if (bookList.length > 0)
+    if (bookList.length === 0)
         renderEmptyDataToDOM(bookListElement, "Book List")
-
-    if (bookFinished.length > 0)
+    else if (bookFinished.length === 0)
         renderEmptyDataToDOM(finishedBookListElement, "Finished Book")
-
 }
 
 const changeBookshelfElement = (event, bookID, category) => {
@@ -204,11 +236,29 @@ const changeBookshelfElement = (event, bookID, category) => {
 const doSearch = () => {
     let inputSearchValue = document.getElementById('search_input').value
     if (inputSearchValue.length > 0) {
-        console.log("typing")
-        searchBookByTitle(inputSearchValue)
+
+        let searchResultBook = searchBookByTitle(inputSearchValue)
+        let anyResult
+        if (searchResultBook.length > 0) {
+            anyResult = true
+            removeAllBookForSearchResult(anyResult)
+
+            searchResultBook.map(item => {
+                if (item.isCompleted)
+                    renderEachBookDOM(item, finishedBookListElement, 'bookList')
+                else
+                    renderEachBookDOM(item, bookListElement, 'bookFinished')
+            })
+        } else {
+            removeAllBookForSearchResult()
+
+            // Jika hasil query tidak ada di 2 shelf
+            renderEmptyDataToDOM(finishedBookListElement, "Finished Book")
+            renderEmptyDataToDOM(bookListElement, "Book List")
+        }
     } else {
-        console.log("reset")
-        resetSearch()
+        // Jika search input field nya kosong, maka refresh saja
+        window.location.reload(false)
     }
 }
 

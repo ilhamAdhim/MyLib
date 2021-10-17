@@ -28,7 +28,6 @@ const loadDataFromStorage = () => {
 }
 
 const initializeBooks = () => {
-    console.log("dinini")
     if (isStorageExist() && localStorage.getItem(STORAGE_KEY) === null) {
         dataBooks = [
             {
@@ -37,7 +36,7 @@ const initializeBooks = () => {
                 "author": "Ilham Rowling",
                 "imageURL": "https://images.moviesanywhere.com/143cdb987186a1c8f94d4f18de211216/fdea56fa-2703-47c1-8da8-70fc5382e1ea.jpg?h=375&resize=fit&w=250",
                 "year": 2000,
-                "isComplete": true
+                "isCompleted": true
             },
             {
                 "id": 1634391145501,
@@ -45,7 +44,7 @@ const initializeBooks = () => {
                 "author": "Robert Kiyosaki",
                 "year": "2017",
                 "imageURL": "https://images-na.ssl-images-amazon.com/images/I/81dQwQlmAXL.jpg",
-                "isComplete": true
+                "isCompleted": true
             },
             {
                 "id": 1634391847252,
@@ -53,7 +52,7 @@ const initializeBooks = () => {
                 "author": "James Clear",
                 "year": "2018",
                 "imageURL": "https://images.tokopedia.net/img/cache/700/VqbcmM/2021/6/6/5105a9a3-3e95-4639-ba4e-b7ca91db8f4f.jpg",
-                "isComplete": false
+                "isCompleted": false
             },
             {
                 "id": 1634392008893,
@@ -61,7 +60,7 @@ const initializeBooks = () => {
                 "author": "Dale Carnegie",
                 "year": "1936",
                 "imageURL": "https://miro.medium.com/max/644/1*2jWzEpx7pPLD4hTiXrGroQ.jpeg",
-                "isComplete": false
+                "isCompleted": false
             },
             {
                 "id": 1634392102756,
@@ -69,7 +68,7 @@ const initializeBooks = () => {
                 "author": "Christiana Figueres",
                 "year": "2020",
                 "imageURL": "https://images-na.ssl-images-amazon.com/images/I/4135O-8cnmL._SX329_BO1,204,203,200_.jpg",
-                "isComplete": true
+                "isCompleted": true
             },
             {
                 "id": 1634392125165,
@@ -77,7 +76,7 @@ const initializeBooks = () => {
                 "author": "Saya sendiri",
                 "year": "2000",
                 "imageURL": "",
-                "isComplete": false
+                "isCompleted": false
             }
         ]
         updateDataToStorage(dataBooks)
@@ -85,19 +84,23 @@ const initializeBooks = () => {
         loadDataFromStorage(STORAGE_KEY)
 }
 
-const addNewBook = (title, author, year, imageURL = "", isComplete = false) => {
+const addNewBook = (title, author, year, imageURL = "", isCompleted = false) => {
     return {
         id: +new Date(),
         title,
         author,
         year,
         imageURL,
-        isComplete,
+        isCompleted,
     };
 }
 
 const searchBookByTitle = (title) => {
     return dataBooks.filter(book => book.title.toLowerCase().includes(title.toLowerCase()))
+}
+
+const searchBookByID = (bookID) => {
+    return dataBooks.filter(book => book.id === bookID)
 }
 
 const removeBookByID = bookID => {
@@ -112,7 +115,7 @@ const updateBookByID = (bookID, category) => {
     // Compare the id, if IDs are similar, then replace the object into the updated ones
     dataBooks.map(book =>
         book.id === bookID ?
-            book.isComplete = category === "bookList" ? true : false
+            book.isCompleted = category === "bookList" ? true : false
             :
             book
     );
@@ -121,22 +124,22 @@ const updateBookByID = (bookID, category) => {
 
 const getBookList = () => {
     return dataBooks.filter(item =>
-        item.isComplete === false
+        item.isCompleted === false
     );
 }
 
 const getFinishedBookList = () => {
     return dataBooks.filter(item =>
-        item.isComplete === true
+        item.isCompleted === true
     )
 }
 
 const deleteAllBookList = () => {
-    dataBooks = dataBooks.filter(item => item.isComplete === true)
+    dataBooks = dataBooks.filter(item => item.isCompleted === true)
     updateDataToStorage();
 }
 
 const deleteAllFinishedBooks = () => {
-    dataBooks = dataBooks.filter(item => item.isComplete === false)
+    dataBooks = dataBooks.filter(item => item.isCompleted === false)
     updateDataToStorage();
 }

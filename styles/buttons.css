@@ -15,12 +15,14 @@ button {
 
 .button_card_header_clear,
 .yes_clear,
+.yes_remove_book,
 .submit_add_book {
   background-color: #231e8f;
 }
 
 .button_card_header_clear:before,
 .yes_clear:before,
+.yes_remove_book:before,
 .submit_add_book:before {
   background-color: #6c63ff;
 }
@@ -29,6 +31,7 @@ button {
 .button_card_header,
 .button_card_header_clear,
 .yes_clear,
+.yes_remove_book,
 .submit_add_book {
   width: 200px;
   border-radius: 0.4em;
@@ -69,6 +72,7 @@ button {
 .button_card_header:before,
 .button_card_header_clear:before,
 .yes_clear:before,
+.yes_remove_book:before,
 .submit_add_book:before {
   animation: opacityFallbackOut 0.5s step-end forwards;
   backface-visibility: hidden;
@@ -88,6 +92,7 @@ button {
 .button_card_header:hover:before,
 .button_card_header_clear:hover:before,
 .yes_clear:hover:before,
+.yes_remove_book:hover:before,
 .submit_add_book:hover:before {
   animation: opacityFallbackIn 0s step-start forwards;
   clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
@@ -97,6 +102,7 @@ button {
 .button_card_header:after,
 .button_card_header_clear:after,
 .yes_clear:after,
+.yes_remove_book:after,
 .submit_add_book:after {
   background-color: #ffffff;
 }
@@ -105,12 +111,14 @@ button {
 .button_card_header span,
 .button_card_header_clear span,
 .yes_clear span,
+.yes_remove_book span,
 .submit_add_book span {
   z-index: 1;
   position: relative;
 }
 
-.yes_clear {
+.yes_clear,
+.yes_remove_book {
   align-items: center;
   padding: 0.8em;
   width: 100px;

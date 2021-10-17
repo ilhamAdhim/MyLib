@@ -113,6 +113,13 @@ main {
   width: 20em;
 }
 
+#footer {
+  text-align: center;
+  margin-top: 3em;
+  padding: 1.5em;
+  background-color: #6c63ff;
+  color: white;
+}
 /* For small screen */
 @media only screen and (max-width: 640px) {
   #jumbotron_section {
