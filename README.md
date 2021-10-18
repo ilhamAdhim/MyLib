@@ -2,9 +2,9 @@
 
 ## By Muhammad Ilham Adhim
 
-[![Rating](https://img.shields.io/badge/Rating-%E2%AD%90%20%E2%AD%90%20%E2%AD%90%20%E2%AD%90%20%E2%AD%90-success)]
-[![Language](https://img.shields.io/badge/Language-Javascript-yellow)]
-[![Status](https://img.shields.io/badge/Status-Live%20✔-success)]
+![Rating](https://img.shields.io/badge/Rating-%E2%AD%90%20%E2%AD%90%20%E2%AD%90%20%E2%AD%90%20%E2%AD%90-success)
+![Language](https://img.shields.io/badge/Language-Javascript-yellow)
+![Status](https://img.shields.io/badge/Status-Live%20✔-success)
 
 
 > <b>Warning</b>:  Please be wise to clone and learn the flow of the app. You are not allowed to copy/create derivatives/steal/sell this program codes. I am not responsible for anything that happens if you get plagiarized / suspended by [Dicoding](https://www.dicoding.com).
